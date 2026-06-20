@@ -4,7 +4,6 @@
 Nexus es un Bot asistente universitario para que los estudiantes puedan consultar sus dudas académicas de manera rápida y eficiente. El bot utiliza inteligencia artificial para entender las preguntas de los estudiantes y proporcionar respuestas precisas y útiles con un estilo de comunicación cercano y amigable, implementando un sistema de RAG (Retrieval-Augmented Generation) para acceder a información actualizada y relevante que esta almacenada en la base de datos.
 
 ## Estructura del proyecto
-- **database/**: Base de datos
 - **docs/**: Documentación
 - **nexus-api/**: API
 - **nexus-app/**: Aplicación web
