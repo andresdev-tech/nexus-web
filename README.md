@@ -26,44 +26,41 @@ Nexus es un Bot asistente universitario para que los estudiantes puedan consulta
 - Mariana Bastidas - Diseñadora UI/UX
 
 ## Estructura Backend
-
-|- nexus-api/
-|   |- src/
-|   |   |- common/
-|   |   |   |- errors/
-|   |   |   |- types/
-|   |   |   |- utils/
-|   |   |   |- middlewares/
-|   |   |- config/
-|   |   |   |- env.ts
-|   |   |   |- logger.ts
-|   |   |   |- swagger.config.ts
-|   |   |   |- database.ts
-|   |   |   |- prisma.ts
-|   |   |- docs/
-|   |   |- modules/
-|   |   |   |- auth/
-|   |   |   |- chatbot/
-|   |   |   |- inscripciones/
-|   |   |   |- pass-reset/
-|   |   |   |- programas/
-|   |   |   |- search/
-|   |   |   |- usuarios/
-|   |   |- routes/
-|   |   |   |- index.ts
-|   |   |- app.ts
-|   |   |- server.ts
-|   |- tests/
-|   |- eslint.config.js
-|   |- nodemon.json
-|   |- package.json
-|   |- pnpm-lock.yaml
-|   |- tsconfig.json
-|   |- prisma.config.ts
-|   |- README.md
-|   |- .env.example
-|   |- .gitignore
-|   |- README_BACKEND.md
-|   |- tsconfig.json
-
+nexus-api/
+├── src/
+│   ├── common/
+│   │   ├── errors/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   └── middlewares/
+│   ├── config/
+│   │   ├── env.ts
+│   │   ├── logger.ts
+│   │   ├── swagger.config.ts
+│   │   ├── database.ts
+│   │   └── prisma.ts
+│   ├── docs/
+│   ├── modules/
+│   │   ├── auth/
+│   │   ├── chatbot/
+│   │   ├── inscripciones/
+│   │   ├── pass-reset/
+│   │   ├── programas/
+│   │   ├── search/
+│   │   └── usuarios/
+│   ├── routes/
+│   │   └── index.ts
+│   ├── app.ts
+│   └── server.ts
+├── tests/
+├── .env.example
+├── .gitignore
+├── eslint.config.js
+├── nodemon.json
+├── package.json
+├── pnpm-lock.yaml
+├── prisma.config.ts
+├── README.md
+├── README_BACKEND.md
+└── tsconfig.json
 
