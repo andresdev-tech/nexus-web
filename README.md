@@ -63,3 +63,36 @@ nexus-api/
 ├── README_BACKEND.md
 └── tsconfig.json
 
+## Estructura Frontend
+
+frontend/
+    ├── package.json
+    ├── next.config.js
+    ├── tailwind.config.js
+    ├── tsconfig.json
+    └── src/
+        ├── app/
+        │   ├── layout.tsx
+        │   ├── page.tsx
+        │   ├── globals.css
+        │   ├── login/page.tsx
+        │   ├── registro/page.tsx
+        │   ├── recuperar-password/page.tsx
+        │   └── dashboard/
+        │       ├── layout.tsx          ← Guard de autenticación
+        │       ├── page.tsx            ← Panel principal
+        │       ├── programas/page.tsx
+        │       ├── inscripciones/page.tsx
+        │       ├── chatbot/page.tsx
+        │       ├── perfil/page.tsx
+        │       └── admin/
+        │           ├── usuarios/page.tsx
+        │           └── programas/page.tsx
+        ├── components/
+        │   └── Sidebar.tsx
+        └── lib/
+            ├── api.ts              ← Cliente Axios centralizado
+            └── AuthContext.tsx     ← Contexto de autenticación
+```
+
+---
