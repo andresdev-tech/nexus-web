@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000/api/v1';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -33,7 +33,7 @@ api.interceptors.response.use(
 
 // ── Auth ─────────────────────────────────────────────────────
 export const authAPI = {
-  registrar:            (data: any) => api.post('/auth/registro', data),
+  registrar:            (data: any) => api.post('/auth/register', data),
   login:                (data: any) => api.post('/auth/login', data),
   logout:               ()          => api.post('/auth/logout'),
   recuperarPassword:    (data: any) => api.post('/auth/recuperar-password', data),
@@ -52,11 +52,11 @@ export const usuariosAPI = {
 
 // ── Programas ──────────────────────────────────────────────────
 export const programasAPI = {
-  listar:     ()           => api.get('/programas'),
-  obtener:    (id: number) => api.get(`/programas/${id}`),
-  crear:      (data: any)  => api.post('/programas', data),
-  actualizar: (id: number, data: any) => api.put(`/programas/${id}`, data),
-  eliminar:   (id: number) => api.delete(`/programas/${id}`),
+  listar:     ()           => api.get('/programs'),
+  obtener:    (id: number) => api.get(`/programs/${id}`),
+  crear:      (data: any)  => api.post('/programs', data),
+  actualizar: (id: number, data: any) => api.put(`/programs/${id}`, data),
+  eliminar:   (id: number) => api.delete(`/programs/${id}`),
 };
 
 // ── Inscripciones ─────────────────────────────────────────────
@@ -69,7 +69,7 @@ export const inscripcionesAPI = {
 
 // ── Chatbot ───────────────────────────────────────────────────
 export const chatbotAPI = {
-  consultar:       (mensaje: string) => api.post('/chatbot/consulta', { mensaje }),
+  consultar:       (mensaje: string) => api.post('/chat/ask', { mensaje }),
   obtenerHistorial: ()               => api.get('/chatbot/historial'),
 };
 
