@@ -9,6 +9,34 @@ const router = Router();
 const controller =
   new ChatbotController();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Chatbot
+ *   description: Asistente Virtual
+ */
+
+/**
+ * @swagger
+ * /chat/ask:
+ *   post:
+ *     summary: Enviar mensaje al chatbot
+ *     tags: [Chatbot]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               message:
+ *                 type: string
+ *                 example: ¿Qué es un framework?
+ *     responses:
+ *       200:
+ *         description: Respuesta generada
+ */
+
 router.post(
   "/ask",
   authMiddleware,
