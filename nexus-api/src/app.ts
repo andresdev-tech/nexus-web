@@ -13,6 +13,9 @@ import router from "./routes/index";
 const app = express();
 
 app.use(helmet());
+app.use(cors());
+app.use(express.json());
+app.use(morgan("combined"));
 app.use(cors(
     {
         origin: "*",
