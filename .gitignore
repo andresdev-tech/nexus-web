@@ -9,6 +9,10 @@ nexus-api/node_modules
 nexus-api/prisma/*
 nexus-api/src/generated
 
+# Nexus Web
+nexus-app/node_modules
+nexus-app/.next
+nexus-app/.env.local.example
 .DS_Store
 *.log
 npm-debug.log*
