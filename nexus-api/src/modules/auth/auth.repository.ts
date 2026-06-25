@@ -18,7 +18,7 @@ export class AuthRepository {
     });
   }
 
-  static createUser(nombres: string, apellidos: string, tipo_documento: number, numero_documento: string, correo_electronico: string, fecha_nacimiento: Date, password: string, rol: number) {
+  static createUser(nombres: string, apellidos: string, tipo_documento: number, numero_documento: string, correo_electronico: string, fecha_nacimiento: Date, password_hash: string, rol: number) {
     return prisma.usuarios.create({
       data: {
         nombres,
@@ -28,6 +28,7 @@ export class AuthRepository {
         correo_electronico: correo_electronico,
         fecha_nacimiento: new Date(fecha_nacimiento),
         password_hash: password,
+        password_hash: password_hash,
         rol_id: rol
       }
     });
