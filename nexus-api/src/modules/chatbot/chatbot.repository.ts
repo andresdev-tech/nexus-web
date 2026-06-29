@@ -46,6 +46,12 @@ export class ChatbotRepository {
       orderBy: {
         creado_en:"asc",
       },
+      select: {
+        id: true,
+        pregunta_usuario: true,
+        respuesta_bot: true,
+        creado_en: true,
+      },
     });
   }
 }
