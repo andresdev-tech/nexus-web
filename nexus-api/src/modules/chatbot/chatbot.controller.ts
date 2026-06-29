@@ -33,4 +33,24 @@ export class ChatbotController {
       next(error);
     }
   };
+
+  getHistory = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const usuarioId = (req as any).user.id;
+
+      const history = await this.service.getHistory(usuarioId);
+
+      res.status(200).json({
+        success: true,
+        message: "Historial obtenido correctamente",
+        data: history,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
