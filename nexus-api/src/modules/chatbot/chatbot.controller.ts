@@ -42,12 +42,14 @@ export class ChatbotController {
     try {
       const usuarioId = (req as any).user.id;
 
-      const history = await this.service.getHistory(usuarioId);
+      const historial =
+        await this.service.getHistory(
+          usuarioId
+        );
 
       res.status(200).json({
         success: true,
-        message: "Historial obtenido correctamente",
-        data: history,
+        data: historial,
       });
     } catch (error) {
       next(error);

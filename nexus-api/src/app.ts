@@ -28,4 +28,6 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/v1/", router);
 
+console.log('key: ', process.env.GEMINI_API_KEY);
+
 export default app;

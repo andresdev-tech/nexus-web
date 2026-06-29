@@ -52,6 +52,6 @@ ${question}
   }
 
   async getHistory(usuarioId: number) {
-    return this.repository.getHistory(usuarioId);
+    return this.repository.getHistory(usuarioId)
   }
 }

@@ -42,7 +42,10 @@ export class AuthService {
             expiresAt: new Date(Date.now() + 3 * 60 * 60 * 1000) // Expira en 3 horas
         });
 
-        return token;
+        return {
+             token,
+             usuario
+        };
     }
 
     /**

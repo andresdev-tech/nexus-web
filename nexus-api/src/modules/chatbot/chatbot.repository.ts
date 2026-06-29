@@ -38,19 +38,13 @@ export class ChatbotRepository {
     });
   }
 
-  async getHistory(usuarioId: number) {
-    return prisma.chatbot_historial.findMany({
+  async getHistory(usuarioId: number){
+    return prisma.chatbot_historial.findFirst({
       where: {
-        usuario_id: usuarioId,
+        usuario_id: usuarioId
       },
       orderBy: {
-        creado_en: "desc",
-      },
-      select: {
-        id: true,
-        pregunta_usuario: true,
-        respuesta_bot: true,
-        creado_en: true,
+        creado_en:"asc",
       },
     });
   }

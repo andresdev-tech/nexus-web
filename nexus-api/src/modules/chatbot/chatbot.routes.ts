@@ -43,10 +43,4 @@ router.post(
   controller.askQuestion
 );
 
-router.get(
-  "/historial",
-  authMiddleware,
-  controller.getHistory
-);
-
 export default router;
