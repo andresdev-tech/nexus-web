@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { AuthService } from "./auth.service";
 
 export class AuthController {
-    
+
     static async login(req: Request, res: Response) {
         try {
             const { correo_electronico, password } = req.body;
@@ -12,13 +12,17 @@ export class AuthController {
             const browser = req.headers['user-agent'] || 'Navegador_Desconocido';
 
             // Pasar los parámetros limpios al servicio
-            const token = await AuthService.login(correo_electronico, password, ip, browser);
-            
-            return res.json({ ok: true, token });
+            const {token, usuario } = await AuthService.login(correo_electronico, password, ip, browser);
+
+            return res.json({
+                ok: true,
+                token,
+                usuario
+            });
         } catch (error) {
-            return res.status(400).json({ 
+            return res.status(400).json({
                 ok: false,
-                error: (error as Error).message 
+                error: (error as Error).message
             });
         }
     }
@@ -26,15 +30,15 @@ export class AuthController {
     static async register(req: Request, res: Response) {
         try {
             // Desestructuración para evitar escribir req.body 8 veces
-            const { 
-                nombres, 
-                apellidos, 
-                tipo_documento, 
-                numero_documento, 
-                correo_electronico, 
-                fecha_nacimiento, 
-                password, 
-                rol 
+            const {
+                nombres,
+                apellidos,
+                tipo_documento,
+                numero_documento,
+                correo_electronico,
+                fecha_nacimiento,
+                password,
+                rol
             } = req.body;
 
             const token = await AuthService.register(
@@ -48,7 +52,11 @@ export class AuthController {
                 Number(rol)             // Asegurar que viaje como número
             );
 
-            return res.status(201).json({ ok: true, token });
+            return res.status(201).json({
+                ok: true,
+                token,
+
+            });
         } catch (error) {
             return res.status(400).json({
                 ok: false,

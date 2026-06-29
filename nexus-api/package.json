@@ -41,7 +41,6 @@
     "zod": "^3.22.4"
   },
   "dependencies": {
-    "@google/genai": "^2.8.0",
     "@google/generative-ai": "^0.24.1",
     "@prisma/adapter-neon": "^7.8.0",
     "@prisma/client": "^7.8.0",
