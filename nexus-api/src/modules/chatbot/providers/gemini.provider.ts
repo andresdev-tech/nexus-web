@@ -1,20 +1,21 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export class GeminiProvider {
-    private ai: GoogleGenAI;
+  private model;
 
-    constructor() {
-        this.ai = new GoogleGenAI({
-            apiKey: process.env.GEMINI_API_KEY,
-        });
-    }
+  constructor() {
+    const genAI = new GoogleGenerativeAI(
+      process.env.GEMINI_API_KEY!
+    );
 
-    async generateResponse(prompt: string) {
-        const result = await this.ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: prompt,
-        });
-        return result.text ?? 'Lo siento, no pude generar una respuesta en este momento.';
-    }
+    this.model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+    });
+  }
 
+  async generateResponse(prompt: string) {
+    const result = await this.model.generateContent(prompt);
+
+    return result.response.text();
+  }
 }

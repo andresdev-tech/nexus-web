@@ -37,4 +37,15 @@ export class ChatbotRepository {
       },
     });
   }
+
+  async getHistory(usuarioId: number){
+    return prisma.chatbot_historial.findFirst({
+      where: {
+        usuario_id: usuarioId
+      },
+      orderBy: {
+        creado_en:"asc",
+      },
+    });
+  }
 }

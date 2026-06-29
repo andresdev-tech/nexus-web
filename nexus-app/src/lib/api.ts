@@ -70,7 +70,7 @@ export const inscripcionesAPI = {
 // ── Chatbot ───────────────────────────────────────────────────
 export const chatbotAPI = {
   consultar:       (mensaje: string) => api.post('/chat/ask', { mensaje }),
-  obtenerHistorial: ()               => api.get('/chatbot/historial'),
+  obtenerHistorial: ()               => api.get('/chat/historial'),
 };
 
 // ── Coordinador ───────────────────────────────────────────────
