@@ -26,7 +26,7 @@ const diasNombres: Record<string, string> = {
 
 const requisitos = [
   'Ser colombiano o extranjero con documento válido',
-  'Tener mínimo 14 años de edad',
+  'Tener mínimo 16 años de edad',
   'Haber cursado mínimo 9° grado de bachillerato (para técnicos)',
   'Haber cursado mínimo 11° grado de bachillerato (para tecnólogos)',
   'No tener matrícula activa en otro programa SENA',
