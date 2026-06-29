@@ -1,11 +1,13 @@
 import { Request, Response } from "express";
 import { AuthService } from "./auth.service";
+import { LoginSchema, RegisterSchema } from "./auth.schemas";
 
 export class AuthController {
 
     static async login(req: Request, res: Response) {
         try {
-            const { correo_electronico, password } = req.body;
+            const validatedData = LoginSchema.parse(req.body);
+            const { correo_electronico, password } = validatedData;
 
             // Extraer la IP y el User-Agent directamente desde la petición HTTP de Express
             const ip = (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || 'IP_DESCONOCIDA';
@@ -29,25 +31,25 @@ export class AuthController {
 
     static async register(req: Request, res: Response) {
         try {
-            // Desestructuración para evitar escribir req.body 8 veces
+            const validatedData = RegisterSchema.parse(req.body);
             const {
                 nombres,
                 apellidos,
-                tipo_documento,
+                tipo_documento_id,
                 numero_documento,
                 correo_electronico,
                 fecha_nacimiento,
                 password,
                 rol
-            } = req.body;
+            } = validatedData;
 
             const token = await AuthService.register(
                 nombres,
                 apellidos,
-                Number(tipo_documento), // Asegurar que viaje como número
+                Number(tipo_documento_id), // Asegurar que viaje como número
                 numero_documento,
                 correo_electronico,
-                fecha_nacimiento,
+                new Date(fecha_nacimiento), // Convertir a Date
                 password,
                 Number(rol)             // Asegurar que viaje como número
             );

@@ -22,18 +22,18 @@ export default function ChatbotPage() {
     chatbotAPI.obtenerHistorial()
       .then((res) => {
         const historial: Mensaje[] = [];
-        res.data.forEach((item: any, i: number) => {
+        res.data.data.forEach((item: any, i: number) => {
           historial.push({
             id: `h-u-${i}`,
             tipo: 'usuario',
             texto: item.pregunta_usuario,
-            fecha: new Date(item.fecha_consulta),
+            fecha: new Date(item.creado_en),
           });
           historial.push({
             id: `h-b-${i}`,
             tipo: 'bot',
             texto: item.respuesta_bot,
-            fecha: new Date(item.fecha_consulta),
+            fecha: new Date(item.creado_en),
           });
         });
         if (historial.length === 0) {

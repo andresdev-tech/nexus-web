@@ -29,7 +29,7 @@ const controller =
  *           schema:
  *             type: object
  *             properties:
- *               message:
+ *               question:
  *                 type: string
  *                 example: ¿Qué es un framework?
  *     responses:

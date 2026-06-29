@@ -63,18 +63,6 @@ export class AuthService {
         rol: number
     ) {
         try {
-            // --- VALIDACIONES DE CAMPOS OBLIGATORIOS ---
-            if (!nombres?.trim()) throw new Error('Nombres no válidos o campo vacío');
-            if (!apellidos?.trim()) throw new Error('Apellidos no válidos o campo vacío');
-            if (tipo_documento <= 0) throw new Error('Tipo de documento no válido');
-            if (!numero_documento?.trim()) throw new Error('Número de documento no válido');
-            if (password.length < 6) throw new Error('La contraseña debe tener al menos 6 caracteres');
-
-            // Validar coherencia en la fecha de nacimiento
-            const fechaNac = new Date(fecha_nacimiento);
-            if (isNaN(fechaNac.getTime()) || fechaNac > new Date()) {
-                throw new Error('Fecha de nacimiento no válida');
-            }
 
             // --- VALIDACIONES DE DUPLICADOS EN BASE DE DATOS ---
             const existeCorreo = await AuthRepository.findUserByEmail(correo_electronico);
@@ -96,7 +84,7 @@ export class AuthService {
                 tipo_documento, 
                 numero_documento, 
                 correo_electronico, 
-                fechaNac, 
+                fecha_nacimiento, 
                 passwordHash, 
                 rol
             );
