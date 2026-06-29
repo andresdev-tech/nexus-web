@@ -26,6 +26,10 @@ export function authMiddleware(req: any, res: any, next: any) {
 
     req.user = decoded;
 
+    const userId = req.user.id;
+
+    console.log("USER ID:", userId);
+
     return next();
 
   } catch (error: any) {
