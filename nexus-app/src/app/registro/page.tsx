@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { authAPI } from '../../lib/api';
 
 export default function RegistroPage() {
+
+  const defaultRol = 1;
   const router = useRouter();
   const [form, setForm] = useState({
     nombres: '', apellidos: '', tipo_documento_id: '1',
@@ -34,10 +36,12 @@ export default function RegistroPage() {
         fecha_nacimiento: form.fecha_nacimiento || undefined,
         correo_electronico: form.correo_electronico,
         password: form.password,
+        rol: defaultRol,
       });
       router.push('/login?registered=true');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Error al registrarse.');
+      console.log('Error en registro:', err.response?.data);
+      setError(err.response?.data?.error || 'Error al registrarse.');
     } finally {
       setLoading(false);
     }
