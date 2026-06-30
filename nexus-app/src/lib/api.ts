@@ -69,7 +69,7 @@ export const inscripcionesAPI = {
 
 // ── Chatbot ───────────────────────────────────────────────────
 export const chatbotAPI = {
-  consultar:       (mensaje: string) => api.post('/chat/ask', { mensaje }),
+  consultar:       (question: string) => api.post('/chat/ask', { question }),
   obtenerHistorial: ()               => api.get('/chat/historial'),
 };
 
