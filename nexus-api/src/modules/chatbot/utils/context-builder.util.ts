@@ -1,6 +1,7 @@
 export function buildContext(
   documents: {
     titulo: string;
+    tipo: string;
     contenido: string;
   }[]
 ): string {
