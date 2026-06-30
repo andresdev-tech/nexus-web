@@ -9,7 +9,6 @@
     "test": "vitest",
     "studio": "prisma studio",
     "prisma:seed": "ts-node prisma/seedDocumentos.ts"
-    "test": "vitest"
   },
   "keywords": [],
   "author": "andresdev-tech",
