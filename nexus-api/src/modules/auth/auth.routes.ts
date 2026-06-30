@@ -23,10 +23,10 @@ const router = Router();
  *           schema:
  *             type: object
  *             required:
- *               - email
+ *               - correo_electronico
  *               - password
  *             properties:
- *               email:
+ *               correo_electronico:
  *                 type: string
  *                 example: andres40@gmail.com
  *               password:

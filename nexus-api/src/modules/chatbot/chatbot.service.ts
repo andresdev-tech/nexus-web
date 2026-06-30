@@ -23,9 +23,15 @@ export class ChatbotService {
   ) {
     const documents =
       await this.repository.searchDocuments(question);
+    console.time("searchDocuments");
+    console.log('cuantos: ', documents.length);
+    console.timeEnd("searchDocuments");
+    
+    console.log("documents: ", JSON.stringify(documents, null, 2));
 
     const context =
       buildContext(documents);
+    console.log("📝 Contexto que se le envía a la IA:\n", context);
 
     const prompt = `
 ${chatbotPrompt}
